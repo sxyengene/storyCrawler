@@ -37,7 +37,7 @@ function handleHtml($){
 
     text = text.replace(/&nbsp;/g,'');
     text = text.replace(/<br>/g,'\n');
-    content = title + '\n' + text;
+    content = title + '\n' + text + '\n';
 
 
     fs.writeFile('九鼎记.txt',content,{

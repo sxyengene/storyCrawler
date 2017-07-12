@@ -40,7 +40,7 @@ function handleHtml($){
     content = title + '\n' + text + '\n';
 
 
-    fs.writeFile('九鼎记.txt',content,{
+    fs.writeFile('九鼎记1.txt',content,{
         flag:'a'
     });
 

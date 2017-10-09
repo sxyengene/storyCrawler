@@ -4,8 +4,8 @@ const fs = require('fs');
 const buffer = require('buffer');
 const iconv = require('iconv-lite');
 
-var host = 'http://www.37zw.net/0/330/';
-var path = '153065.html';
+var host = 'http://www.biquger.com';
+var path = '/biquge/20520/10423009';
 // var crid = '3644001';
 
 // var url = host+path+crid;
@@ -35,7 +35,9 @@ function catchPage(url){
 
 function handleHtml($){
     var title = $('.bookname h1').text();
-    var text = $('#content').html();
+    var text = $('.content').text();
+    console.log(title);
+
     var content = '';
 
     text = text.replace(/&nbsp;/g,'');
@@ -45,14 +47,14 @@ function handleHtml($){
     content = title + '\n' + text + '\n';
 
     var ofs = {flag:'a'};
-    fs.writeFile('大主宰.txt',content,ofs,function(){});
+    fs.writeFile('风水大相师.txt',content,ofs,function(){});
 
     // if(crid == 3966326){
         // return;
     // }
     
     var html = $.html();
-    path = $('.bottem2 a').eq(3).attr('href');
+    path = $('.bottem a').eq(3).attr('href');
     if(typeof path == 'undefined'){
         return;
     }
@@ -60,6 +62,7 @@ function handleHtml($){
     console.log(path);
     // url = host+path+crid;
     url = host+path;
+    // console.log(url);
     catchPage(url);
 }
 
